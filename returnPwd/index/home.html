@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-table-view-cell { text-align: center;}
+			.url { font-size: 0.8rem; padding: 0.1rem 1rem; background-color: #2AC845; border-radius: 3px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+		        <li class="mui-table-view-cell" data-url="www.baidu.com" data-password="zhenglongfan">
+		            <a class="mui-navigate-right">
+	                    <span class="url">www.baidu.com</span>
+		            </a>
+		        </li>
+		        <li class="mui-table-view-cell" data-password="zhenglongfan" data-url="www.sina.com">
+		            <a class="mui-navigate-right">
+		                <span class="url">www.sina.com</span>
+		            </a>
+		        </li>
+		        <li class="mui-table-view-cell" data-password="zhenglongfan" data-url="www.google.com">
+		            <a class="mui-navigate-right">
+		                <span class="url">www.google.com</span>
+		            </a>
+		        </li>
+			</ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/common.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function () {
+				// 点击
+				mui('.mui-table-view').on('tap', '.mui-table-view-cell', function() {
+					var url = this.dataset.url
+					var pwd = this.dataset.password
+					copyToClip(pwd)
+					mui.toast('复制' + url + '网站密码成功,密码为:' + pwd, {
+						duration: 'short',
+						type: 'div'
+					})
+				})
+				
+			})
+		</script>
+	</body>
+
+</html>
